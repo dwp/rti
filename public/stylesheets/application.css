@@ -809,6 +809,7 @@ fieldset {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  margin-top: 10px;
   width: 100%; }
 
 table th, table td {
@@ -828,6 +829,9 @@ table th, table td {
 
 table th {
   font-weight: 700; }
+
+table th.numeric, table td.numeric {
+  text-align: right; }
 
 .button {
   background-color: #00823b;
