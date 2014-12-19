@@ -16,7 +16,18 @@
 main.area {
   min-height: 16em;
 }
-.header-proposition {
-  clear: none;
-  min-height: 6em;
+
+
+/*  rti demo */
+table {
+  margin:10px 0 20px;
+}
+
+.highlight {
+  color:$light-blue;
+  font-style: normal;
+}
+
+#proposition-links {
+  float:right;
 }
