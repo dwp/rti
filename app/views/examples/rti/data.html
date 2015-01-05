@@ -3,26 +3,40 @@
 <main id="page-container" role="main">
   <h1 class="heading-large">Income</h1>
 
-  <div class="grid-row">
-    <div class="column-third">
-      <h2 class="bold-medium">NINO: <em class="highlight">ABC123456C</em></h2>
-    </div>
-    <div class="column-third">
-      <h2 class="bold-medium">Name: <em class="highlight">Mary Jane Smith</em></h2>
-    </div>
-  </div>
+{{#data}}
 
   <div class="grid-row">
     <div class="column-third">
-      <h3 class="heading-medium">Prudential</h3>
+      <h2 class="bold-medium">NINO: <em class="highlight">{{nino}}</em></h2>
     </div>
     <div class="column-third">
-      <h3 class="heading-medium">03/12/13 - to date</h3>
-    </div>
-    <div class="column-third">
-      <h3 class="heading-medium">Pension</h3>
+      <h2 class="bold-medium">Name: <em class="highlight">{{name}}</em></h2>
     </div>
   </div>
+
+  {{^pension}}
+  <div class="grid-row">
+    <div class="column-third">
+      <h3 class="heading-medium">{{companyName}}</h3>
+    </div>
+    <div class="column-third">
+      <h3 class="heading-medium">{{toDate}} - {{fromDate}}</h3>
+    </div>
+    {{#pension}}
+      <div class="column-third">
+        <h3 class="heading-medium">Pension</h3>
+      </div>
+    {{/pension}}
+  </div>
+  {{/pension}}
+  
+  {{#pension}}
+  <ul class="list-bullet">
+    <li>{{companyName}}</li>
+    <li>{{toDate}} - {{fromDate}}</li>
+    <li>Pension</li>
+  </ul>
+  {{/pension}}
 
   <table>
     <thead>
@@ -34,127 +48,22 @@
       </tr>
     </thead>
     <tbody>
+      {{#financials}}
       <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
+        <td>{{DatePaid}}</td>
+        <td class="numeric">{{Gross}}</td>
+        <td class="numeric">
+          {{#Deductions}}
+            <a href="#">{{Deductions}}</a>
+          {{/Deductions}}
+        </td>
+        <td class="numeric">{{Net}}</td>
       </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
+      {{/financials}}
     </tbody>
   </table>
 
-  <div class="grid-row" style="margin-top:40px; border-top:1px solid #BFC1C3; padding-top:40px;">
-    <div class="column-third">
-      <h2 class="bold-medium">NINO: <em class="highlight">ABC123456C</em></h2>
-      <ul class="list-bullet">
-        <li>Asda</li>
-        <li>03/12/13 - to date</li>
-        <li>Pension</li>
-      </ul>
-    </div>
-    <div class="column-third">
-      <h2 class="bold-medium">Name: <em class="highlight">Mary Jane Smith</em></h2>
-    </div>
-  </div>
-
-  <table>
-    <thead>
-      <tr>
-        <th scope="col">Date</th>
-        <th class="numeric" scope="col">Gross</th>
-        <th class="numeric" scope="col">Deduction</th>
-        <th class="numeric" scope="col">Net</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-      <tr>
-        <td>01/09/14</td>
-        <td class="numeric">80</td>
-        <td class="numeric">70</td>
-        <td class="numeric">70</td>
-      </tr>
-    </tbody>
-  </table>
-
-
+{{/data}}
 
 </main>
 {{/content}}

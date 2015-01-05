@@ -5,6 +5,8 @@ module.exports = {
                 {'assetPath' : assetPath});
     });
 
+    var tableData = require('./assets/javascripts/data');
+
     /* Example pages */
 
     app.get('/examples/hello-world', function (req, res) {
@@ -25,9 +27,16 @@ module.exports = {
 
     app.get('/examples/rti', function (req, res) {
       res.render('examples/rti/rti', {
-        'assetPath' : assetPath,
-        'name'      : 'Gurpreet'
+        'assetPath' : assetPath
         });
+    });
+
+    app.get('/examples/rti/data', function (req, res) {
+      res.render('examples/rti/data',{
+        data        : tableData.getTableData(),
+        'assetPath' : assetPath
+      });
+
     });
   }
 };

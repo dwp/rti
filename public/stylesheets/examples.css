@@ -17,6 +17,12 @@ main.area {
 table {
   margin: 10px 0 20px; }
 
+table:not(:last-child) {
+  margin-bottom: 50px; }
+
+table th.numeric, table td.numeric {
+  text-align: right; }
+
 .highlight {
   color: #2b8cc4;
   font-style: normal; }
