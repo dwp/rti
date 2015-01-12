@@ -1,11 +1,11 @@
+var tableData = require('./assets/javascripts/data');
+
 module.exports = {
   bind : function (app, assetPath) {
     app.get('/', function (req, res) {
       res.render('index',
                 {'assetPath' : assetPath});
     });
-
-    var tableData = require('./assets/javascripts/data');
 
     /* Example pages */
 
@@ -31,12 +31,15 @@ module.exports = {
         });
     });
 
+    app.post('/examples/rti/nino', function(req, res) {
+      res.send('staffnumber: ' + req.body.staffnumber);
+    });
+
     app.get('/examples/rti/data', function (req, res) {
       res.render('examples/rti/data',{
         data        : tableData.getTableData(),
         'assetPath' : assetPath
       });
-
     });
   }
 };
