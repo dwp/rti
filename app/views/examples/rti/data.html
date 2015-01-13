@@ -26,7 +26,7 @@
         <h3 class="heading-medium">01/12/2013 - 30/09/2014</h3>
       {{/ninoFromDate}}
     </div>
-    <div class="column-third">
+    <div class="column-third text-pull-right">
       <h3 class="heading-medium">Pension {{#pension}} {{/pension}}</h3>
     </div>
   </div>
@@ -47,7 +47,7 @@
         <td class="numeric">{{Gross}}</td>
         <td class="numeric">
           {{#Deductions}}
-            <a class="test" href="#">{{Deductions}}</a>
+            <a class="deductions link" data-date="{{DatePaid}}" data-deduction="{{Deductions}}" href="#">{{Deductions}}</a>
           {{/Deductions}}
         </td>
         <td class="numeric">{{Net}}</td>
@@ -58,25 +58,19 @@
 
 {{/data}}
 
-<div class="modal fade" id="deductions-modal" role="dialog" aria-labelledby="myModalLabel"
-aria-hidden="true">
-<<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
+<div class="modal fade " id="deductions-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
-      <button type="button" class="close" data-dismiss="modal">
-        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="popupTitle">
-          Modal title</h4>
+      <div class="modal-header">
+        <button type="button" class="close pull-right" data-dismiss="modal">
+          <span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <h4 class="heading-small" id="popupTitle">Deductions breakdown...</h4>
         </div>
-        <div class="modal-body" id="popupBody">
-          ...
-        </div>
-        <div class="modal-footer" id="popupFooter">
-          <button type="button" class="btn btn-default" data-dismiss="modal">
-            Close</button>
+          <div class="modal-body">
+            
           </div>
         </div>
-      </div>
+  </div>
 </div>
 
 

@@ -64,3 +64,21 @@ fieldset {
   float:left;
   width:100%;
 }
+
+.text-pull-right {
+  text-align:right;
+}
+
+.close {
+  background:none;
+  border:0;
+}
+
+button.close:hover {
+  color:$link-hover-colour;
+}
+
+.modal-header h4,
+.modal-body p {
+  margin:0;
+}

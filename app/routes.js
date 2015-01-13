@@ -25,7 +25,7 @@ module.exports = {
     });
 
     app.get('/examples/rti', function (req, res) {
-      res.render('examples/rti/rti', {
+      res.render('examples/rti/login', {
         'assetPath' : assetPath
         });
     });
