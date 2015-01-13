@@ -3,19 +3,19 @@
 <main id="page-container" role="main">
 
   <form method="post" action="./data" enctype="application/x-www-form-urlencoded" class="form">
-    <h1 class="form-title heading-large">RTI Data Required</h1>
+    <h1 class="form-title heading-large"></h1>
 
     <div class="form-group">
       <label class="form-label-bold" for="nino">National Insurance number</label>
-      <p class="form-hint text">For example, 'QQ 12 34 56 C'.</p>
       <input type="text" class="form-control" name="nino" id="nino">
+      <p class="form-hint text">For example, 'QQ 12 34 56 C'.</p>
     </div>
 
     <div class="form-group">
       <fieldset>
-        <legend class="form-label-bold">From</legend>
-        <p class="form-hint text">For example, '01 04 2014'.</p>
+        <legend class="form-label-bold">Show earnings data</legend>
         <div class="form-date">
+          <label class="form-label label-date">From</label>
           <div class="form-group form-group-day">
             <label for="from-day">Day</label>
             <input type="text" class="form-control" name="fromDay" id="from-day">
@@ -29,14 +29,9 @@
             <input type="text" class="form-control" name="fromYear" id="from-year">
           </div>
         </div>
-      </fieldset>
-    </div>
 
-    <div class="form-group">
-      <fieldset>
-        <legend class="form-label-bold">To</legend>
-        <p class="form-hint text">For example, '01 04 2015'.</p>
         <div class="form-date">
+          <label class="form-label label-date">To</label>
           <div class="form-group form-group-day">
             <label for="to-day">Day</label>
             <input type="text" class="form-control" name="toDay" id="to-day">
@@ -50,6 +45,7 @@
             <input type="text" class="form-control" name="toYear" id="to-year">
           </div>
         </div>
+        <p class="form-hint date-hint text">For example, '01 04 2014'.</p>
       </fieldset>
     </div>
 

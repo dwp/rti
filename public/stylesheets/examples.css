@@ -440,3 +440,11 @@ fieldset {
   border: none;
   margin: 0;
   padding: 0; }
+
+.form-date {
+  float: left;
+  width: 260px; }
+
+.date-hint {
+  float: left;
+  width: 100%; }

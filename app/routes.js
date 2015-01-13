@@ -45,15 +45,11 @@ module.exports = {
     });
 
     app.post('/examples/rti/data', function (req, res) {
-      if (req.body.nino) {
-        var tableDataPath = require('./assets/javascripts/' + req.body.nino);
-      } else {
-        var tableDataPath = require('./assets/javascripts/data')
-      }
 
-      var tableData    = tableDataPath,
-          ninoFromDate = req.body.fromDay + '/' + req.body.fromMonth + '/' + req.body.fromYear,
-          ninoToDate   = req.body.toDay + '/' + req.body.toMonth + '/' + req.body.toYear;
+      var tableDataPath = require('./assets/javascripts/' + req.body.nino.toLowerCase()),
+          tableData     = tableDataPath,
+          ninoFromDate  = req.body.fromDay + '/' + req.body.fromMonth + '/' + req.body.fromYear,
+          ninoToDate    = req.body.toDay + '/' + req.body.toMonth + '/' + req.body.toYear;
 
       res.render('examples/rti/data',{
         data            : tableData.getTableData(),

@@ -14,7 +14,6 @@
     </div>
   </div>
 
-  {{^pension}}
   <div class="grid-row">
     <div class="column-third">
       <h3 class="heading-medium">{{companyName}}</h3>
@@ -27,28 +26,10 @@
         <h3 class="heading-medium">01/12/2013 - 30/09/2014</h3>
       {{/ninoFromDate}}
     </div>
-    {{#pension}}
-      <div class="column-third">
-        <h3 class="heading-medium">Pension</h3>
-      </div>
-    {{/pension}}
+    <div class="column-third">
+      <h3 class="heading-medium">Pension {{#pension}} X {{/pension}}</h3>
+    </div>
   </div>
-  {{/pension}}
-
-  {{#pension}}
-  <ul class="list-bullet">
-    <li>{{companyName}}</li>
-    <li>
-      {{#ninoFromDate}}
-        {{ninoFromDate}} - {{ninoToDate}}
-      {{/ninoFromDate}}
-      {{^ninoFromDate}}
-        01/12/2013 - 30/09/2014
-      {{/ninoFromDate}}
-    </li>
-    <li>Pension</li>
-  </ul>
-  {{/pension}}
 
   <table>
     <thead>
@@ -66,7 +47,7 @@
         <td class="numeric">{{Gross}}</td>
         <td class="numeric">
           {{#Deductions}}
-            <a href="#">{{Deductions}}</a>
+            <a class="test" href="#">{{Deductions}}</a>
           {{/Deductions}}
         </td>
         <td class="numeric">{{Net}}</td>
@@ -76,6 +57,28 @@
   </table>
 
 {{/data}}
+
+<div class="modal fade" id="deductions-modal" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="popupTitle">
+          Modal title</h4>
+        </div>
+        <div class="modal-body" id="popupBody">
+          ...
+        </div>
+        <div class="modal-footer" id="popupFooter">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Close</button>
+          </div>
+        </div>
+      </div>
+</div>
+
 
 </main>
 {{/content}}
