@@ -1,4 +1,3 @@
-var tableData = require('./assets/javascripts/data');
 
 module.exports = {
   bind : function (app, assetPath) {
@@ -31,15 +30,39 @@ module.exports = {
         });
     });
 
-    app.post('/examples/rti/nino', function(req, res) {
-      res.send('staffnumber: ' + req.body.staffnumber);
+    app.post('/examples/rti/nino', function (req, res) {
+      res.render('examples/rti/nino', {
+        'assetPath' : assetPath
+      })
     });
 
     app.get('/examples/rti/data', function (req, res) {
+      var tableDataPath = require('./assets/javascripts/data');
       res.render('examples/rti/data',{
-        data        : tableData.getTableData(),
+        data        : tableDataPath.getTableData(),
         'assetPath' : assetPath
       });
     });
+
+    app.post('/examples/rti/data', function (req, res) {
+      if (req.body.nino) {
+        var tableDataPath = require('./assets/javascripts/' + req.body.nino);
+      } else {
+        var tableDataPath = require('./assets/javascripts/data')
+      }
+
+      var tableData    = tableDataPath,
+          ninoFromDate = req.body.fromDay + '/' + req.body.fromMonth + '/' + req.body.fromYear,
+          ninoToDate   = req.body.toDay + '/' + req.body.toMonth + '/' + req.body.toYear;
+
+      res.render('examples/rti/data',{
+        data            : tableData.getTableData(),
+        'assetPath'     : assetPath,
+        'nino'          : req.body.nino,
+        'ninoFromDate'  : ninoFromDate,
+        'ninoToDate'    : ninoToDate
+      });
+    });
   }
+
 };

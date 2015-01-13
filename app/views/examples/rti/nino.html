@@ -2,30 +2,31 @@
 {{$content}}
 <main id="page-container" role="main">
 
-  <form  method="post" action="/" enctype="application/x-www-form-urlencoded" class="form">
+  <form method="post" action="./data" enctype="application/x-www-form-urlencoded" class="form">
     <h1 class="form-title heading-large">RTI Data Required</h1>
 
     <div class="form-group">
-      <label class="form-label-bold" for="staff-number">National Insurance number</label>
+      <label class="form-label-bold" for="nino">National Insurance number</label>
       <p class="form-hint text">For example, 'QQ 12 34 56 C'.</p>
-      <input type="text" class="form-control" name="staffnumber" id="staffnumber">
+      <input type="text" class="form-control" name="nino" id="nino">
     </div>
 
     <div class="form-group">
       <fieldset>
         <legend class="form-label-bold">From</legend>
+        <p class="form-hint text">For example, '01 04 2014'.</p>
         <div class="form-date">
           <div class="form-group form-group-day">
             <label for="from-day">Day</label>
-            <input type="text" class="form-control" id="from-day">
+            <input type="text" class="form-control" name="fromDay" id="from-day">
           </div>
           <div class="form-group form-group-month">
             <label for="from-month">Month</label>
-            <input type="text" class="form-control" id="from-month">
+            <input type="text" class="form-control" name="fromMonth" id="from-month">
           </div>
           <div class="form-group form-group-year">
             <label for="from-year">Year</label>
-            <input type="text" class="form-control" id="from-year">
+            <input type="text" class="form-control" name="fromYear" id="from-year">
           </div>
         </div>
       </fieldset>
@@ -34,18 +35,19 @@
     <div class="form-group">
       <fieldset>
         <legend class="form-label-bold">To</legend>
+        <p class="form-hint text">For example, '01 04 2015'.</p>
         <div class="form-date">
           <div class="form-group form-group-day">
             <label for="to-day">Day</label>
-            <input type="text" class="form-control" id="to-day">
+            <input type="text" class="form-control" name="toDay" id="to-day">
           </div>
           <div class="form-group form-group-month">
             <label for="to-month">Month</label>
-            <input type="text" class="form-control" id="to-month">
+            <input type="text" class="form-control" name="toMonth" id="to-month">
           </div>
           <div class="form-group form-group-year">
             <label for="to-year">Year</label>
-            <input type="text" class="form-control" id="to-year">
+            <input type="text" class="form-control" name="toYear" id="to-year">
           </div>
         </div>
       </fieldset>
