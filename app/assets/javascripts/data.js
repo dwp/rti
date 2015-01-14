@@ -1,6 +1,6 @@
 var data = [
 {
-  "name"        : "Mary Jane Smith",
+  "name"        : "Mary Jane Semith",
   "companyName" : "Prudential",
   "nino"        : "ABC123456C",
   "toDate"      : "03/08/13",

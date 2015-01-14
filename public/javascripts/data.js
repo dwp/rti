@@ -1,4 +1,5 @@
-var data = [ {
+var data = [
+{
   "name"        : "Mary Jane Smith",
   "companyName" : "Prudential",
   "nino"        : "ABC123456C",
