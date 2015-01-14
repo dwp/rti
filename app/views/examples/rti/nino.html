@@ -7,46 +7,26 @@
 
     <div class="form-group">
       <label class="form-label-bold" for="nino">National Insurance number</label>
-      <input type="text" class="form-control" name="nino" id="nino">
       <p class="form-hint text">For example, 'QQ 12 34 56 C'.</p>
+      <input type="text" class="form-control" name="nino" id="nino">
     </div>
 
     <div class="form-group">
       <fieldset>
-        <legend class="form-label-bold">Show earnings data</legend>
-        <div class="form-date">
-          <label class="form-label label-date">From</label>
-          <div class="form-group form-group-day">
-            <label for="from-day">Day</label>
-            <input type="text" class="form-control" name="fromDay" id="from-day">
-          </div>
-          <div class="form-group form-group-month">
-            <label for="from-month">Month</label>
-            <input type="text" class="form-control" name="fromMonth" id="from-month">
-          </div>
-          <div class="form-group form-group-year">
-            <label for="from-year">Year</label>
-            <input type="text" class="form-control" name="fromYear" id="from-year">
-          </div>
-        </div>
-
-        <div class="form-date">
-          <label class="form-label label-date">To</label>
-          <div class="form-group form-group-day">
-            <label for="to-day">Day</label>
-            <input type="text" class="form-control" name="toDay" id="to-day">
-          </div>
-          <div class="form-group form-group-month">
-            <label for="to-month">Month</label>
-            <input type="text" class="form-control" name="toMonth" id="to-month">
-          </div>
-          <div class="form-group form-group-year">
-            <label for="to-year">Year</label>
-            <input type="text" class="form-control" name="toYear" id="to-year">
-          </div>
-        </div>
-        <p class="form-hint date-hint text">For example, '01 04 2014'.</p>
-      </fieldset>
+        <legend>Date range</legend>
+        <label class="block-label" for="radio-1">
+          <input id="radio-1" type="radio" name="radio-group" value="3-months">
+          3 Months
+        </label>
+        <label class="block-label" for="radio-2">
+          <input id="radio-2" type="radio" name="radio-group" value="12-months">
+          1 Year
+        </label>
+        <label class="block-label" for="radio-3">
+          <input id="radio-3" type="radio" name="radio-group" value="All">
+          All Available Data
+        </label>
+    </fieldset>
     </div>
 
     <div class="form-group">

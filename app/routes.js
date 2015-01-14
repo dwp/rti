@@ -54,7 +54,7 @@ module.exports = {
       res.render('examples/rti/data',{
         data            : tableData.getTableData(),
         'assetPath'     : assetPath,
-        'nino'          : req.body.nino,
+        'nino'          : req.body.nino.toUpperCase(),
         'ninoFromDate'  : ninoFromDate,
         'ninoToDate'    : ninoToDate
       });
