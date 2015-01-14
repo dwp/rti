@@ -27,7 +27,10 @@
       {{/ninoFromDate}}
     </div>
     <div class="column-third text-pull-right">
-      <h3 class="heading-medium">Pension {{#pension}} {{/pension}}</h3>
+      <h3 class="heading-medium">Pension
+        {{#pension}} <i class="fa fa-check-square-o"></i>{{/pension}}
+        {{^pension}} <i class="fa fa-square-o"></i>{{/pension}}
+      </h3>
     </div>
   </div>
 
@@ -67,7 +70,7 @@
           <h4 class="heading-small" id="popupTitle">Deductions breakdown...</h4>
         </div>
           <div class="modal-body">
-            
+
           </div>
         </div>
   </div>

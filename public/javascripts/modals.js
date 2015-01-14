@@ -24,5 +24,6 @@ $(function() {
 
     $('.modal-body').empty().append(modalText);
     $('#deductions-modal').modal('show');
-  })
-})
+    return false;
+  });
+});
