@@ -1,22 +1,20 @@
 {{<examples/rti/rti_layout}}
 {{$content}}
 <main id="page-container" role="main">
-  <h1 class="heading-large">Income for {{ninoName}}</h1>
 
-
-
+  {{#data}}
+  <h1 class="heading-large">Income for {{name}}</h1>
   <div class="grid-row">
     <div class="column-half">
-      <h2 class="bold-medium">National Insurance Number: {{#nino}}{{nino}}{{/nino}}{{^nino}}AB123456C{{/nino}}</h2>
+      <h2 class="bold-medium">National Insurance Number: {{nino}}</h2>
     </div>
   </div>
-
-{{#data}}
+{{#earnings}}
   <div class="grid-row">
     <div class="column-full">
-      <h3 class="heading-medium">{{companyName}} ({{#pension}}Pension{{/pension}}{{^pension}}Employment{{/pension}})
+      <h3 class="heading-medium">{{organisation}} ({{#pension}}Pension{{/pension}}{{^pension}}Employment{{/pension}})
       </h3>
-      <p>{{prevDate}} - {{today}} </p>
+      <p>{{fromDate}} - {{toDate}} </p>
     </div>
   </div>
 
@@ -30,21 +28,21 @@
       </tr>
     </thead>
     <tbody>
-      {{#financials}}
+      {{#payments}}
       <tr>
-        <td>{{DatePaid}}</td>
-        <td class="numeric">{{Gross}}</td>
+        <td>{{datePaid}}</td>
+        <td class="numeric">{{gross}}</td>
         <td class="numeric">
-          {{#Deductions}}
-            <a class="deductions link" data-date="{{DatePaid}}" data-deduction="{{Deductions}}" href="#">{{Deductions}}</a>
-          {{/Deductions}}
+          {{#deduction}}
+            <a class="deductions link" data-date="{{datePaid}}" data-deduction="{{deduction}}" href="#">{{deduction}}</a>
+          {{/deduction}}
         </td>
-        <td class="numeric">{{Net}}</td>
+        <td class="numeric">{{net}}</td>
       </tr>
-      {{/financials}}
+      {{/payments}}
     </tbody>
   </table>
-
+{{/earnings}}
 {{/data}}
 
 <div class="modal fade " id="deductions-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">

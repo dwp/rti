@@ -470,5 +470,5 @@ button.close:hover {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-.header-global, .footer-meta {
-  display: none; }
+.header-global, .footer-meta, .global-cookie-message {
+  display: none !important; }
