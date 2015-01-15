@@ -469,3 +469,6 @@ button.close:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+.header-global, .footer-meta {
+  display: none; }
