@@ -93,6 +93,7 @@ button.close:hover {
 }
 
 .header-global,
-.footer-meta {
-  display:none;
+.footer-meta,
+.global-cookie-message {
+  display:none !important;
 }
