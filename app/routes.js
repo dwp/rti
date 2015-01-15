@@ -75,8 +75,6 @@ module.exports = {
         var jsonData = require('./assets/javascripts/data');
       }
 
-
-
       var tableDataPath = jsonData,
           ninoFromDate  = req.body.fromDay + '/' + req.body.fromMonth + '/' + req.body.fromYear,
           ninoToDate    = req.body.toDay + '/' + req.body.toMonth + '/' + req.body.toYear;
