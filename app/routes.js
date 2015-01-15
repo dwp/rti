@@ -45,26 +45,37 @@ module.exports = {
     });
 
     app.post('/examples/rti/data', function (req, res) {
-      if (req.body.nino) {
-        var jsonData = require('./assets/javascripts/' + req.body.nino.toLowerCase());
-      } else {
-        var jsonData = require('./assets/javascripts/data');
-      }
 
       var date        = new Date(),
           todaysDate  = date.getDate(),
           todaysMonth = date.getMonth() + 1,
-          today       = todaysDate + '/' + todaysMonth + "/" + date.getFullYear(),
+          thisYear    = date.getFullYear(),
+          today       = todaysDate + '/' + todaysMonth + "/" + thisYear,
           getFromDate = date.setDate(date.getDate() -90),
           fromDate    = new Date(getFromDate);
 
-      if (req.body.radioGroup === '3') {
-        var fromDdate = todaysDate  + '/' + (fromDate.getMonth() + 1) + "/" + fromDate.getFullYear();
-      } else if (req.body.radioGroup === '12') {
-        var fromDdate = todaysDate + '/' + todaysMonth + "/" + fromDate.getFullYear();
+      if( req.body.nino.toLowerCase() === 'de123456f') {
+        var ninoName = 'Jane Smith';
       } else {
-        var fromDdate = todaysDate  + '/' + todaysMonth + "/" + (fromDate.getFullYear() - 5);
+        var ninoName = 'Mary Jane Smith';
       }
+
+      if (req.body.nino) {
+        if (req.body.radioGroup === '3') {
+          var jsonData = require('./assets/javascripts/' + req.body.nino.toLowerCase() + '_3');
+          var fromDdate = todaysDate  + '/' + (fromDate.getMonth() + 1) + "/" + fromDate.getFullYear();
+        } else if (req.body.radioGroup === '12') {
+          var jsonData = require('./assets/javascripts/' + req.body.nino.toLowerCase() + '_12');
+          var fromDdate = todaysDate + '/' + todaysMonth + "/" + fromDate.getFullYear();
+        } else {
+          var jsonData = require('./assets/javascripts/' + req.body.nino.toLowerCase());
+          var fromDdate = todaysDate  + '/' + todaysMonth + "/" + (thisYear - 2);
+        }
+      } else {
+        var jsonData = require('./assets/javascripts/data');
+      }
+
+
 
       var tableDataPath = jsonData,
           ninoFromDate  = req.body.fromDay + '/' + req.body.fromMonth + '/' + req.body.fromYear,
@@ -72,7 +83,7 @@ module.exports = {
 
       res.render('examples/rti/data',{
         data            : tableDataPath.getTableData(),
-        'ninoName'      : tableDataPath.getTableData()['name'],
+        'ninoName'      : ninoName,
         'assetPath'     : assetPath,
         'nino'          : req.body.nino.toUpperCase(),
         'today'         : today,

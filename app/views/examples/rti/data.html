@@ -1,7 +1,7 @@
 {{<examples/rti/rti_layout}}
 {{$content}}
 <main id="page-container" role="main">
-  <h1 class="heading-large">Income for Mary Jane Smith</h1>
+  <h1 class="heading-large">Income for {{ninoName}}</h1>
 
 
 
@@ -14,22 +14,10 @@
 {{#data}}
   <div class="grid-row">
     <div class="column-full">
-      <h3 class="heading-medium">{{companyName}} {{prevDate}} - {{today}}  ({{#pension}}Pension{{/pension}}{{^pension}}Employment{{/pension}})
+      <h3 class="heading-medium">{{companyName}} ({{#pension}}Pension{{/pension}}{{^pension}}Employment{{/pension}})
       </h3>
-    </div><!--
-    <div class="column-third">
-      {{#ninoFromDate}}
-        <h3 class="heading-medium">{{ninoFromDate}} - {{ninoToDate}}</h3>
-      {{/ninoFromDate}}
-      {{^ninoFromDate}}
-        <h3 class="heading-medium"></h3>
-      {{/ninoFromDate}}
+      <p>{{prevDate}} - {{today}} </p>
     </div>
-    <div class="column-third text-pull-right">
-      <h3 class="heading-medium">Pension
-
-      </h3>
-    </div>-->
   </div>
 
   <table>
