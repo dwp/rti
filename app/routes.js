@@ -36,40 +36,52 @@ module.exports = {
       })
     });
 
-    app.get('/examples/rti/data', function (req, res) {
-      var http = require('http');
-      var options = {
-        hhost: '',
-        port: '80',
-        path: 'http://accounts/test2.php',
-        //This is what changes the request to a POST request
-        method: 'POST'
-      };
+    app.post('/examples/rti/data' , function (req, res) {
+      var date        = new Date(),
+          todaysDate  = date.getDate(),
+          todaysMonth = date.getMonth() + 1,
+          thisYear    = date.getFullYear(),
+          today       = todaysDate + '/' + todaysMonth + "/" + thisYear,
+          getFromDate = date.setDate(date.getDate() -90),
+          fromDate    = new Date(getFromDate)
+          getNino     = req.body.nino,
+          http        = require('http'),
+          options     = {
+            hhost: '',
+            port: '80',
+            path: 'LOCAL URL' + req.body.nino,
+            //This is what changes the request to a POST request
+            method: 'POST'
+          };
 
       callback = function(response) {
-        var str = ''
-        response.on('data', function (chunk) {
-          str += chunk;
+        var jsonData = '';
+        response.on('data', function (data) {
+          jsonData += data;
         });
 
         response.on('end', function () {
-        var jsonString = JSON.parse(str);
-        res.render('examples/rti/data',{
-          data        : jsonString,
-          'assetPath' : assetPath
-        });
+          if (response.statusCode !== 200) {
+            res.render('examples/rti/error',{
+              'assetPath' : assetPath
+            });
+          } else {
+            var json = JSON.parse(jsonData);
+            res.render('examples/rti/data',{
+              data        : json,
+              'assetPath' : assetPath
+            });
+          }
         });
       }
 
       var req = http.request(options, callback);
-      //This is the data we are posting, it needs to be a string or a buffer
-      req.write("hello world!");
       req.end();
 
 
     });
 
-    app.post('/examples/rti/data', function (req, res) {
+    /*app.post('/examples/rti/data', function (req, res) {
 
       var date        = new Date(),
           todaysDate  = date.getDate(),
@@ -112,7 +124,7 @@ module.exports = {
         'today'         : today,
         'prevDate'      : fromDdate
       });
-    });
+    }); */
   }
 
 };
