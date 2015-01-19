@@ -85,7 +85,7 @@ module.exports = {
         'assetPath'     : assetPath,
         'nino'          : req.body.nino.toUpperCase(),
         'today'         : today,
-        'prevDate'      : fromDdate
+        'prevDate'      : '03/02/13'
       });
     });
   }
