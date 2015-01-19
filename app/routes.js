@@ -53,7 +53,7 @@ module.exports = {
             //This is what changes the request to a POST request
             method: 'POST'
           };
-          
+
       callback = function(response) {
         var jsonData = '';
         response.on('data', function (data) {
@@ -62,7 +62,6 @@ module.exports = {
 
         response.on('end', function () {
 
-          console.log(response.statusCode )
           if (response.statusCode !== 200) {
             res.render('examples/rti/error',{
               'assetPath' : assetPath
