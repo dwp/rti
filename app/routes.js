@@ -48,12 +48,12 @@ module.exports = {
           http        = require('http'),
           options     = {
             hhost: '',
-            port: '80',
-              path: 'http://accounts/' + req.body.nino + '&periodMonths=' + req.body.radioGroup,
+            port: '8900',
+              path: 'http://localhost:8900/view-earning?nino=' + req.body.nino + '&periodMonths=' + req.body.radioGroup,
             //This is what changes the request to a POST request
             method: 'POST'
           };
-
+         console.log(options)
       callback = function(response) {
         var jsonData = '';
         response.on('data', function (data) {
@@ -61,7 +61,7 @@ module.exports = {
         });
 
         response.on('end', function () {
-
+          console.log(response.statusCode)
           if (response.statusCode !== 200) {
             res.render('examples/rti/error',{
               'assetPath' : assetPath
