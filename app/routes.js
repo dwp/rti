@@ -49,11 +49,11 @@ module.exports = {
           options     = {
             hhost: '',
             port: '80',
-            path: 'LOCAL URL' + req.body.nino,
+              path: 'http://accounts/' + req.body.nino + '&periodMonths=' + req.body.radioGroup,
             //This is what changes the request to a POST request
             method: 'POST'
           };
-
+          
       callback = function(response) {
         var jsonData = '';
         response.on('data', function (data) {
@@ -61,6 +61,8 @@ module.exports = {
         });
 
         response.on('end', function () {
+
+          console.log(response.statusCode )
           if (response.statusCode !== 200) {
             res.render('examples/rti/error',{
               'assetPath' : assetPath
