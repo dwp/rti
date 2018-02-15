@@ -14,7 +14,8 @@
     "govuk_template_mustache": "^0.9.1",
     "hogan.js": "3.0.2",
     "minimist": "0.0.8",
-    "readdir": "0.0.6"
+    "readdir": "0.0.6",
+    "gaze": "1.1.0"
   },
   "devDependencies": {
     "node-sass": "0.x",
